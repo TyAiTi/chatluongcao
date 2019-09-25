@@ -91,14 +91,15 @@ public class Test {
 		String nhan;
 		int t, a, i, dao, d;
 		i = 0;
+		d = 0;
 		byte []b  = new byte[50];
 		byte []c  = new byte[50];
 		a = Integer.parseInt(numgui);
 		//System.out.println("Kiem tra a = "+a);
 		t = a;
-		for(int j=0; j<=8; j++) {
-			b[j] = 0;
-			c[j] = 0;
+		for(int j=0; j<=7; j++) {
+			b[j] = 48;
+			c[j] = 48;
 		}
 		
 		while(a>0) {
@@ -120,10 +121,20 @@ public class Test {
 		System.out.println("Kiem tra i "+i);
 		dao = i;
 		
-		for(int j=0; j<=i; j++) {
-			c[j] = b[dao];
-			dao--;
+//		for(int j=0; j<=i; j++) {
+//			c[j] = b[dao];
+//			dao--;
+//		}
+		for(int j =7; i>=0; j--) {
+			if(j==-1) {
+				break;
+			}
+			else {
+				c[j] = b[d];
+				d++;
+			}	
 		}
+		
 		System.out.println("Kiem tra b ");
 		for(int j=0; j<=7; j++) {
 			System.out.println("vi tri: "+j+" la: "+b[j]);
