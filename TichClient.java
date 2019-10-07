@@ -8,6 +8,51 @@ import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class TyClient{
+	
+	 //dùng để xuống hàng dữ liệu từ client in cho đẹp
+	public static void in(byte []b, int count) {
+		for(int i =0; i<16; i++) {
+			if(i<10) {
+//				if(b[i]==88) {
+//					System.out.print("[X ] ");
+//				}
+//				else
+//					System.out.print("["+b[i]+" ] ");
+				switch (b[i]) {
+				case 88:
+					System.out.print("[X ] ");
+					break;
+				case 79:
+				System.out.print("[O ] ");
+					break;
+				default:
+					System.out.print("["+b[i]+"] ");
+				}
+			}
+			else {
+//				if(b[i]==88) {
+//					System.out.print("[X ] ");
+//				}
+//				else
+//					System.out.print("["+b[i]+" ] ");
+				switch (b[i]) {
+				case 88:
+					System.out.print("[X ] ");
+					break;
+				case 79:
+				System.out.print("[O ] ");
+					break;
+				default:
+					System.out.print("["+b[i]+"] ");
+				}
+			}					
+			count ++;
+			if(count==4) {
+				System.out.println(" ");
+				count = 0;
+			}					
+		}
+	}
 	public static void main(String[] args) {
 			System.out.println("Khoi tao Socket");
 		try {//tao socket co ip va port
@@ -56,19 +101,8 @@ public class TyClient{
 				//doc du lieu
 				len = is.read(b);
 				
-				for(int i =0; i<16; i++) {
-					if(i<10) {
-						System.out.print("["+b[i]+" ] ");
-					}
-					else {
-						System.out.print("["+b[i]+"] ");
-					}					
-					count ++;
-					if(count==4) {
-						System.out.println(" ");
-						count = 0;
-					}					
-				}
+				//hàm in du liệu ra cho nó đẹp thôi
+				in(b,count);
 			}//ket thuc vong lap while
 			s.close();
 			
@@ -78,6 +112,8 @@ public class TyClient{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("");
 		}
 	}
 }
+
